@@ -1,4 +1,4 @@
-_G.Color = Color3.fromRGB(0, 0, 255)
+_G.Color = Color3.fromRGB(150, 0, 0)
 _G.Logo = 74099166547943
 
 do  
@@ -1898,7 +1898,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.12, 0, 0.095, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = _G.Logo and "http://www.roblox.com/asset/?id=" .. _G.Logo or "rbxassetid://0"
+ImageButton.Image = "http://www.roblox.com/asset/?id="..(_G.Logo)
 
 ImageButton.MouseButton1Down:Connect(function()
     local vim = game:GetService("VirtualInputManager")
