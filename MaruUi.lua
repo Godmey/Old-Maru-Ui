@@ -1,5 +1,5 @@
 _G.Color = Color3.fromRGB(0, 0, 255)
-_G.Logo = 74099166547943
+_G.Logo = 14714307716
 
 do  
 	local ui = game:GetService("CoreGui"):FindFirstChild("UILibrary") 
@@ -1883,11 +1883,11 @@ function library:Evil(text,logo)
 	end
 	return tabs
 end
-
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
-		
+local Stroke = Instance.new("UIStroke")
+
 ScreenGui.Name = "ImageButton"
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -1895,12 +1895,19 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Position = UDim2.new(0.12, 0, 0.095, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id="..(_G.Logo)
-ImageButton.MouseButton1Down:connect(function()
-	game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-	game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+ImageButton.Image = _G.Logo and "http://www.roblox.com/asset/?id=" .. _G.Logo or "rbxassetid://0"
+
+ImageButton.MouseButton1Down:Connect(function()
+    local vim = game:GetService("VirtualInputManager")
+    vim:SendKeyEvent(true, 305, false, game)
+    vim:SendKeyEvent(false, 305, false, game)
 end)
+
 UICorner.Parent = ImageButton
+UICorner.CornerRadius = UDim.new(0, 100)
+Stroke.Parent = ImageButton
+Stroke.Color = _G.Color
+Stroke.Thickness = 1.5
